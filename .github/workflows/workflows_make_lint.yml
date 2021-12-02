@@ -1,9 +1,9 @@
 name: make-lint
 on: push
 jobs:
-        my jobs:
-                runs-on: ubuntu-latest
-                steps:
-                        - name: step 1
-                        run: |
-                                make lint
+  my jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1
+      run: |
+        make lint
