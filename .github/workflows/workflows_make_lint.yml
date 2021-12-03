@@ -8,5 +8,5 @@ jobs:
       - name: Step 1
         run: |
           pip install poetry
-          poytry add --dev wemake-python-stylegyide
+          poetry add --dev wemake-python-stylegyide
           make lint
