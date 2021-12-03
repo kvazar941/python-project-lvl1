@@ -9,4 +9,5 @@ jobs:
         run: |
           pip install poetry
           poetry add --dev flake8
+          poetry add --dev wemake-python-styleguide
           make lint
