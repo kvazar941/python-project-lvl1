@@ -45,9 +45,9 @@ def game_parity_check():
         else:
             # report an incorrect answer and end the game
             return (
-                '{0} is wrong answer ;(.' +
-                + 'Correct answer was {1}\n' +
-                + 'Let,s try again, {2}!'
+                "'{0}' Is wrong answer ;(. "
+                + "Correct answer was '{1}'\n"  # noqa: W503
+                + "Let\'s try again, {2}!"  # noqa: W503
             ).format(answer, parity, name)
         counter_question += 1
     # Report the successful completion of the game
