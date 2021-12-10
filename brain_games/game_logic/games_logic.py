@@ -1,6 +1,5 @@
 """Game logic module."""
 import logging
-import random
 
 import prompt
 
@@ -11,10 +10,17 @@ CONSOLEHANDLER = logging.StreamHandler()
 CONSOLEHANDLER.setLevel(logging.INFO)
 logger.addHandler(CONSOLEHANDLER)
 
+number_of_rounds = 3  # 3 - the number of stages of the game
 
-def game_parity_check():
+
+def main(rules, questions, correct_answers):
     """
     Implement the logic of the game.
+
+    Args:
+        rules: str
+        questions: list
+        correct_answers: list
 
     Returns:
         str
@@ -23,23 +29,15 @@ def game_parity_check():
     logger.info('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
     logger.info('Hello, {0}!'.format(name))
-    logger.info('Answer "yes" if the number is even, otherwise answer "no".')
-    counter_question = 1
-    while counter_question <= 3:  # 3 - the number of stages of the game
-        # Choose a random number from 1 to 100
-        random_number = random.SystemRandom().randint(1, 100)
-        # Check a random number for parity
-        # and assign the result to the variable 'parity'
-        if random_number % 2 == 0:
-            parity = 'yes'
-        else:
-            parity = 'no'
-        logger.info('Question: {0}'.format(random_number))
+    logger.info(rules)
+    counter_question = 0
+    while counter_question < number_of_rounds:
+        logger.info('Question: {0}'.format(questions[counter_question]))
         # Get the player's response
         answer = prompt.string('Your answer: ')
         # Compare the player's response
         # With the value of the 'parity' variable
-        if answer == parity:
+        if answer == correct_answers[counter_question]:
             # Report the correct answer
             logger.info('Correct!')
         else:
@@ -48,7 +46,11 @@ def game_parity_check():
                 "'{0}' Is wrong answer ;(. "
                 + "Correct answer was '{1}'\n"  # noqa: W503
                 + "Let\'s try again, {2}!"  # noqa: W503
-            ).format(answer, parity, name)
+            ).format(answer, correct_answers[counter_question], name)
         counter_question += 1
     # Report the successful completion of the game
     return 'Congratulation, {0}!'.format(name)
+
+
+if __name__ == '__main__':
+    main()
