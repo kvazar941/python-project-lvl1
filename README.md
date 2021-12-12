@@ -9,3 +9,7 @@ href="https://codeclimate.com/github/codelimate/maintainability"><img src="https
 <a href="https://asciinema.org/a/QavlAH4ZMJItSsO1vioKhacbL" target="_blank"><img src="https://asciinema.org/a/QavlAH4ZMJItSsO1vioKhacbL.svg" /></a>
 
 <a href="https://asciinema.org/a/tiCpjfEXKdWD3Pet6fxMSgqMG" target="_blank"><img src="https://asciinema.org/a/tiCpjfEXKdWD3Pet6fxMSgqMG.svg" /></a>
+
+<a href="https://asciinema.org/a/UydsegTOxSaJRlRKeY8bg1T0y" target="_blank"><img src="https://asciinema.org/a/UydsegTOxSaJRlRKeY8bg1T0y.svg" /></a>
+
+<a href="https://asciinema.org/a/Oa5Xdhf5uBAEJqSY2wS7z6Rr6" target="_blank"><img src="https://asciinema.org/a/Oa5Xdhf5uBAEJqSY2wS7z6Rr6.svg" /></a>
