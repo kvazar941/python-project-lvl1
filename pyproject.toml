@@ -3,6 +3,11 @@ name = "hexlet-code"
 version = "0.1.0"
 description = ""
 authors = ["Сергей <kvazar941@gmail.com>"]
+repository = "github.com/kvazar941/python-project-lvl1"
+classifiers = [
+    "Topic :: Development Status :: 2 - Pre-Alpha",
+    "Topic :: Environment :: Console"
+]
 packages = [
     { include = "brain_games" },
 ]

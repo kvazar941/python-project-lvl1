@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""main module with entry point."""
+"""Main script with entry point."""
 from brain_games.games import prime
 
 

@@ -1,9 +1,9 @@
-"""prime module."""
+"""Even module."""
 import random
 
 from brain_games.game_logic import games_logic
 
-rules_game = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+rules_game = 'Answer "yes" if the number is even, otherwise answer "no".'
 question = []
 correct_answer = []
 
@@ -18,22 +18,17 @@ def generating_question():
     return random.SystemRandom().randint(1, 100)
 
 
-def generating_correct_answer(num):
+def generating_correct_answer(checked_number):
     """
     Generate correct answer.
 
     Args:
-        num: int
+        checked_number: int
 
     Returns:
         str
     """
-    index = num - 1
-    while index > 1:
-        if num % index == 0:
-            return 'no'
-        index -= 1
-    return 'yes'
+    return 'yes' if checked_number % 2 == 0 else 'no'
 
 
 def main():
@@ -45,9 +40,9 @@ def main():
     """
     counter_question = 0
     while counter_question < games_logic.number_of_rounds:
-        rand_num = generating_question()
-        question.append('{0}'.format(rand_num))
-        correct_answer.append(generating_correct_answer(rand_num))
+        random_number = generating_question()
+        question.append(random_number)
+        correct_answer.append(generating_correct_answer(random_number))
         counter_question += 1
     return games_logic.main(rules_game, question, correct_answer)
 

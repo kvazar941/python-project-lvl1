@@ -1,1 +1,7 @@
 .venv/
+__pycache__
+dist/
+*.рус
+cli.py
+brain_games.py
+

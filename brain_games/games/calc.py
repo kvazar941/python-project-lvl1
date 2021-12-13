@@ -4,8 +4,43 @@ import random
 from brain_games.game_logic import games_logic
 
 rules_game = 'What is the result of the expression?.'
-expr = []
-cor_answ = []
+question = []
+correct_answer = []
+
+
+def generating_question(num_one, oper, num_two):
+    """
+    Generate question.
+
+    Args:
+        num_one: int
+        num_two: int
+        oper: str
+
+    Returns:
+        str
+    """
+    return '{0} {1} {2}'.format(num_one, oper, num_two)
+
+
+def generating_correct_answer(num_one, oper, num_two):
+    """
+    Generate correct answer.
+
+    Args:
+        num_one: int
+        num_two: int
+        oper: str
+
+    Returns:
+        str
+    """
+    if oper == '+':
+        return (str(num_one + num_two))
+    elif oper == '-':
+        return (str(num_one - num_two))
+    elif oper == '*':
+        return (str(num_one * num_two))
 
 
 def main():
@@ -17,21 +52,14 @@ def main():
     """
     counter_question = 0
     while counter_question < games_logic.number_of_rounds:
-        rand_num_one = random.SystemRandom().randint(1, 100)
-        rand_num_two = random.SystemRandom().randint(1, 100)
+        number_one = random.SystemRandom().randint(1, 100)
+        number_two = random.SystemRandom().randint(1, 100)
         operator = random.SystemRandom().choice('+-*')
-        expr.append('{0} {1} {2}'.format(rand_num_one, operator, rand_num_two))
-        if operator == '+':
-            res = rand_num_one + rand_num_two
-            cor_answ.append(str(res))
-        elif operator == '-':
-            res = rand_num_one - rand_num_two
-            cor_answ.append(str(res))
-        elif operator == '*':
-            res = rand_num_one * rand_num_two
-            cor_answ.append(str(res))
+        question.append(generating_question(number_one, operator, number_two))
+        corr_answ = generating_correct_answer(number_one, operator, number_two)
+        correct_answer.append(corr_answ)
         counter_question += 1
-    return games_logic.main(rules_game, expr, cor_answ)
+    return games_logic.main(rules_game, question, correct_answer)
 
 
 if __name__ == '__main__':
