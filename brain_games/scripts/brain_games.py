@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return 'Welcome to the Brain Games!\n{0}'.format(cli.welcome_user())
+    return cli.welcome_user()
 
 
 if __name__ == '__main__':
