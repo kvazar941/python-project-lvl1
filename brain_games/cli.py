@@ -21,3 +21,7 @@ def welcome_user():
     logger.info('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
     return ('Hello, {0}!'.format(name))
+
+
+if __name__ == '__main__':
+    welcome_user()
