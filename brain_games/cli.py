@@ -12,15 +12,10 @@ logger.addHandler(CONSOLEHANDLER)
 
 
 def welcome_user():
-    """
-    Request a name and greet a user by name.
-
-    Returns:
-        str
-    """
+    """Request a name and greet a user by name."""
     logger.info('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    return ('Hello, {0}!'.format(name))
+    logger.info('Hello, {0}!'.format(name))
 
 
 if __name__ == '__main__':
