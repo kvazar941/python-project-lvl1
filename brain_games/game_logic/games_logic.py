@@ -43,8 +43,8 @@ def main(rules, questions, correct_answers):
         else:
             # report an incorrect answer and end the game
             return (
-                "'{0}' Is wrong answer ;(. "
-                + "Correct answer was '{1}'\n"  # noqa: W503
+                "'{0}' is wrong answer ;(. "
+                + "Correct answer was '{1}'.\n"  # noqa: W503
                 + "Let\'s try again, {2}!"  # noqa: W503
             ).format(answer, correct_answers[counter_question], name)
         counter_question += 1
