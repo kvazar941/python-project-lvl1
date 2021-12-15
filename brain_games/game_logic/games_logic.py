@@ -9,6 +9,8 @@ logger.setLevel(logging.INFO)
 CONSOLEHANDLER = logging.StreamHandler()
 CONSOLEHANDLER.setLevel(logging.INFO)
 logger.addHandler(CONSOLEHANDLER)
+formatter = logging.Formatter('%(message)s')  # noqa: WPS323
+CONSOLEHANDLER.setFormatter(formatter)
 
 number_of_rounds = 3  # 3 - the number of stages of the game
 
