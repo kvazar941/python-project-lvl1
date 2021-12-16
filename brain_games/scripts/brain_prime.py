@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return '{0}'.format(prime.main())
+    return prime.main()
 
 
 if __name__ == '__main__':

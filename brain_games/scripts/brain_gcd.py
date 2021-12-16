@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return '{0}'.format(gcd.main())
+    return gcd.main()
 
 
 if __name__ == '__main__':

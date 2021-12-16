@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return '{0}'.format(progression.main())
+    return progression.main()
 
 
 if __name__ == '__main__':
