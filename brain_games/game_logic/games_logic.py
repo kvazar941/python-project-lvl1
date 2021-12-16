@@ -40,7 +40,8 @@ def main(rules, questions, correct_answers):
             ).format(answer, correct_answers[counter_question], name)
         counter_question += 1
     # Report the successful completion of the game
-    return 'Congratulations, {0}!'.format(name)
+    print('Congratulations, {0}!'.format(name))
+    
 
 
 if __name__ == '__main__':
