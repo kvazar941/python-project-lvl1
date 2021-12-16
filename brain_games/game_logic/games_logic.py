@@ -1,4 +1,5 @@
 """Game logic module."""
+# flake8: noqa
 import prompt
 
 number_of_rounds = 3  # 3 - the number of stages of the game
@@ -31,17 +32,18 @@ def main(rules, questions, correct_answers):
         if answer == correct_answers[counter_question]:
             # Report the correct answer
             print('Correct!')
+            counter_question += 1
+            if counter_question == number_of_rounds:
+                print('Congratulations, {0}!'.format(name))
         else:
             # report an incorrect answer and end the game
-            return (
-                "'{0}' is wrong answer ;(. "
+            print(
+                ("'{0}' is wrong answer ;(. "
                 + "Correct answer was '{1}'.\n"  # noqa: W503
                 + "Let\'s try again, {2}!"  # noqa: W503
-            ).format(answer, correct_answers[counter_question], name)
-        counter_question += 1
-    # Report the successful completion of the game
-    print('Congratulations, {0}!'.format(name))
-    
+                ).format(answer, correct_answers[counter_question], name)
+            )
+            counter_question = number_of_rounds 
 
 
 if __name__ == '__main__':
