@@ -34,7 +34,7 @@ def main(rules, questions, correct_answers):
     logger.info(rules)
     counter_question = 0
     while counter_question < number_of_rounds:
-        logger.info('Question: {0}'.format(questions[counter_question]))
+        print('Question:', questions[counter_question])  # noqa: WPS421
         # Get the player's response
         answer = prompt.string('Your answer: ')
         # Compare the player's response
