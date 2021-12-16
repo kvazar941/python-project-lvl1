@@ -1,16 +1,5 @@
 """Game logic module."""
-import logging
-
 import prompt
-
-# Configure the module logging
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-CONSOLEHANDLER = logging.StreamHandler()
-CONSOLEHANDLER.setLevel(logging.INFO)
-logger.addHandler(CONSOLEHANDLER)
-formatter = logging.Formatter('%(message)s')  # noqa: WPS323
-CONSOLEHANDLER.setFormatter(formatter)
 
 number_of_rounds = 3  # 3 - the number of stages of the game
 
@@ -28,10 +17,10 @@ def main(rules, questions, correct_answers):
         str
     """
     # Welcome the player and set the rules of the game
-    logger.info('Welcome to the Brain Games!')
+    print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
-    logger.info('Hello, {0}!'.format(name))
-    logger.info(rules)
+    print('Hello, {0}!'.format(name))
+    print(rules)
     counter_question = 0
     while counter_question < number_of_rounds:
         print('Question:', questions[counter_question])  # noqa: WPS421
@@ -41,7 +30,7 @@ def main(rules, questions, correct_answers):
         # With the value of the 'parity' variable
         if answer == correct_answers[counter_question]:
             # Report the correct answer
-            logger.info('Correct!')
+            print('Correct!')
         else:
             # report an incorrect answer and end the game
             return (
