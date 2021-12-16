@@ -4,13 +4,25 @@ import prompt
 number_of_rounds = 3  # 3 - the number of stages of the game
 
 
-def message(format_, message):
-    """Output a formatted message."""
-    print(format_.format(message))  # noqa: WPS421
+def message(formation, formatting_message):
+    """
+    Output a formatted message.
+
+    Args:
+        formation: str
+        formatting_message: str, int
+    """
+    print(formation.format(formatting_message))  # noqa: WPS421
 
 
 def message_error(right_answer, wrong_answer):
-    """Output a formatted message about the error."""
+    """
+    Output a formatted message about the error.
+
+    Args:
+        right_answer: str, int
+        wrong_answer: str, int
+    """
     format_message = "'{0}' is wrong answer ;(. Correct answer was '{1}'."
     print(format_message.format(wrong_answer, right_answer))  # noqa: WPS421
 
