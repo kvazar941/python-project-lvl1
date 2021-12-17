@@ -3,7 +3,7 @@ import random
 
 from brain_games.game_logic import games_logic
 
-rules_game = 'Answer "yes" if the number is even, otherwise answer "no".'
+RULES_GAME = 'Answer "yes" if the number is even, otherwise answer "no".'
 question = []
 correct_answer = []
 
@@ -44,7 +44,7 @@ def main():
         question.append(random_number)
         correct_answer.append(generating_correct_answer(random_number))
         counter_question += 1
-    return games_logic.main(rules_game, question, correct_answer)
+    return games_logic.main(RULES_GAME, question, correct_answer)
 
 
 if __name__ == '__main__':

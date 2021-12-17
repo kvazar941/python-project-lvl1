@@ -3,12 +3,13 @@ import random
 
 from brain_games.game_logic import games_logic
 
-rules_game = 'What number is missing in the progression?'
+RULES_GAME = 'What number is missing in the progression?'
 question = []
 correct_answer = []
 #  minimum and maximum sequence length
-seq_len_min = 5
-seq_len_max = 15
+# 5, 15 - the numbers determined by the task
+SEQ_LEN_MIN = 5
+SEQ_LEN_MAX = 15
 
 
 def progression_formation():
@@ -18,8 +19,7 @@ def progression_formation():
     Returns:
         int
     """
-    # 5, 15 - the numbers determined by the task
-    leght_progr = random.SystemRandom().randint(seq_len_min, seq_len_max)
+    leght_progr = random.SystemRandom().randint(SEQ_LEN_MIN, SEQ_LEN_MAX)
     init_num_progr = random.SystemRandom().randint(1, 100)
     step_progr = random.SystemRandom().randint(1, 10)
     pos_progr = 0
@@ -74,7 +74,7 @@ def main():
         question.append(' '.join(generating_question(progr, quest_position)))
         correct_answer.append((str(corr_answ)))
         counter_question += 1
-    return games_logic.main(rules_game, question, correct_answer)
+    return games_logic.main(RULES_GAME, question, correct_answer)
 
 
 if __name__ == '__main__':

@@ -1,21 +1,12 @@
 """Communication module."""
-import logging
-
 import prompt
-
-# Configure the module logging
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-CONSOLEHANDLER = logging.StreamHandler()
-CONSOLEHANDLER.setLevel(logging.INFO)
-logger.addHandler(CONSOLEHANDLER)
 
 
 def welcome_user():
     """Request a name and greet a user by name."""
-    logger.info('Welcome to the Brain Games!')
+    print('Welcome to the Brain Games!')  # noqa: WPS421
     name = prompt.string('May I have your name? ')
-    logger.info('Hello, {0}!'.format(name))
+    print('Hello, {0}!'.format(name))  # noqa: WPS421
 
 
 if __name__ == '__main__':

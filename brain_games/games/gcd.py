@@ -3,7 +3,7 @@ import random
 
 from brain_games.game_logic import games_logic
 
-rules_game = 'Find the greatest common divisor of given numbers.'
+RULES_GAME = 'Find the greatest common divisor of given numbers.'
 question = []
 correct_answer = []
 
@@ -55,7 +55,7 @@ def main():
         corr_answ = generating_correct_answer(number_one, number_two)
         correct_answer.append(str(corr_answ))
         counter_question += 1
-    return games_logic.main(rules_game, question, correct_answer)
+    return games_logic.main(RULES_GAME, question, correct_answer)
 
 
 if __name__ == '__main__':

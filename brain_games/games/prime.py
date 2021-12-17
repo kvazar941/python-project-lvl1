@@ -3,7 +3,7 @@ import random
 
 from brain_games.game_logic import games_logic
 
-rules_game = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+RULES_GAME = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 question = []
 correct_answer = []
 
@@ -49,7 +49,7 @@ def main():
         question.append('{0}'.format(rand_num))
         correct_answer.append(generating_correct_answer(rand_num))
         counter_question += 1
-    return games_logic.main(rules_game, question, correct_answer)
+    return games_logic.main(RULES_GAME, question, correct_answer)
 
 
 if __name__ == '__main__':
