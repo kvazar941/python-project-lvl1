@@ -4,8 +4,6 @@ import random
 from brain_games.game_logic import games_logic
 
 RULES_GAME = 'Answer "yes" if the number is even, otherwise answer "no".'
-question = []
-correct_answer = []
 
 
 def generating_question():
@@ -31,6 +29,19 @@ def generating_correct_answer(checked_number):
     return 'yes' if checked_number % 2 == 0 else 'no'
 
 
+def generating_question_answer():
+    """
+    Generate question and answer.
+
+    Yields:
+        str, str
+    """
+    while True:  # noqa: WPS457
+        questions = generating_question()
+        answers = generating_correct_answer(questions)
+        yield str(questions), answers
+
+
 def main():
     """
     Implement the logic of the game.
@@ -38,13 +49,7 @@ def main():
     Returns:
         str
     """
-    counter_question = 0
-    while counter_question < games_logic.number_of_rounds:
-        random_number = generating_question()
-        question.append(random_number)
-        correct_answer.append(generating_correct_answer(random_number))
-        counter_question += 1
-    return games_logic.main(RULES_GAME, question, correct_answer)
+    return games_logic.main(RULES_GAME, generating_question_answer())
 
 
 if __name__ == '__main__':

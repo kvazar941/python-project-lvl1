@@ -1,7 +1,7 @@
 """Game logic module."""
 import prompt
 
-number_of_rounds = 3  # 3 - the number of stages of the game
+NUMBER_OF_ROUNDS = 3  # 3 - the number of stages of the game
 
 
 def message(formation, formatting_message):
@@ -27,32 +27,32 @@ def message_error(right_answer, wrong_answer):
     print(format_message.format(wrong_answer, right_answer))  # noqa: WPS421
 
 
-def main(rules, questions, correct_answers):
+def main(rules, question_answer):
     """
     Implement the logic of the game.
 
     Args:
         rules: str
-        questions: list
-        correct_answers: list
+        question_answer: function-generator
     """
     message('{0}', 'Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
     message('Hello, {0}!', name)
     message('{0}', rules)
     counter_question = 0
-    while counter_question < number_of_rounds:
-        message('Question: {0}', questions[counter_question])
+    while counter_question < NUMBER_OF_ROUNDS:
+        question, answer = next(question_answer)
+        message('Question: {0}', question)
         answer_user = prompt.string('Your answer: ')
-        if answer_user == correct_answers[counter_question]:
+        if answer_user == answer:
             message('{0}', 'Correct!')
             counter_question += 1
-            if counter_question == number_of_rounds:
+            if counter_question == NUMBER_OF_ROUNDS:
                 message('Congratulations, {0}!', name)
         else:
-            message_error(correct_answers[counter_question], answer_user)
+            message_error(answer, answer_user)
             message("Let\'s try again, {0}!", name)
-            counter_question = number_of_rounds
+            counter_question = NUMBER_OF_ROUNDS
 
 
 if __name__ == '__main__':

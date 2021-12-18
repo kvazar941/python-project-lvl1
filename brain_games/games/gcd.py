@@ -1,25 +1,21 @@
-"""gcd module."""
+"""GCD module."""
 import random
 
 from brain_games.game_logic import games_logic
 
 RULES_GAME = 'Find the greatest common divisor of given numbers.'
-question = []
-correct_answer = []
 
 
-def generating_question(num_one, num_two):
+def generating_question():
     """
     Generate question.
 
-    Args:
-        num_one: int
-        num_two: int
-
     Returns:
-        str
+        tuple
     """
-    return '{0} {1}'.format(num_one, num_two)
+    number_one = random.SystemRandom().randint(1, 100)
+    number_two = random.SystemRandom().randint(1, 100)
+    return (number_one, number_two)
 
 
 def generating_correct_answer(num_one, num_two):
@@ -40,6 +36,19 @@ def generating_correct_answer(num_one, num_two):
         nod -= 1
 
 
+def generating_question_answer():
+    """
+    Generate question and answer.
+
+    Yields:
+        str, str
+    """
+    while True:  # noqa: WPS457
+        questions = generating_question()
+        answers = generating_correct_answer(*questions)
+        yield '{0} {1}'.format(*questions), str(answers)
+
+
 def main():
     """
     Implement the logic of the game.
@@ -47,15 +56,7 @@ def main():
     Returns:
         str
     """
-    counter_question = 0
-    while counter_question < games_logic.number_of_rounds:
-        number_one = random.SystemRandom().randint(1, 100)
-        number_two = random.SystemRandom().randint(1, 100)
-        question.append(generating_question(number_one, number_two))
-        corr_answ = generating_correct_answer(number_one, number_two)
-        correct_answer.append(str(corr_answ))
-        counter_question += 1
-    return games_logic.main(RULES_GAME, question, correct_answer)
+    return games_logic.main(RULES_GAME, generating_question_answer())
 
 
 if __name__ == '__main__':

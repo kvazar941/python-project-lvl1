@@ -4,23 +4,20 @@ import random
 from brain_games.game_logic import games_logic
 
 RULES_GAME = 'What is the result of the expression?.'
-question = []
-correct_answer = []
 
 
-def generating_question(num_one, oper, num_two):
+def generating_question():
     """
     Generate question.
 
-    Args:
-        num_one: int
-        num_two: int
-        oper: str
-
     Returns:
-        str
+        tuple
     """
-    return '{0} {1} {2}'.format(num_one, oper, num_two)
+    number_one = random.SystemRandom().randint(1, 100)
+    number_two = random.SystemRandom().randint(1, 100)
+    operator = random.SystemRandom().choice('+-*')
+
+    return (number_one, operator, number_two)
 
 
 def generating_correct_answer(num_one, oper, num_two):
@@ -43,6 +40,19 @@ def generating_correct_answer(num_one, oper, num_two):
         return (str(num_one * num_two))
 
 
+def generating_question_answer():
+    """
+    Generate question and answer.
+
+    Yields:
+        str, str
+    """
+    while True:  # noqa: WPS457
+        questions = generating_question()
+        answers = generating_correct_answer(*questions)
+        yield '{0} {1} {2}'.format(*questions), answers
+
+
 def main():
     """
     Implement the logic of the game.
@@ -50,16 +60,7 @@ def main():
     Returns:
         str
     """
-    counter_question = 0
-    while counter_question < games_logic.number_of_rounds:
-        number_one = random.SystemRandom().randint(1, 100)
-        number_two = random.SystemRandom().randint(1, 100)
-        operator = random.SystemRandom().choice('+-*')
-        question.append(generating_question(number_one, operator, number_two))
-        corr_answ = generating_correct_answer(number_one, operator, number_two)
-        correct_answer.append(corr_answ)
-        counter_question += 1
-    return games_logic.main(RULES_GAME, question, correct_answer)
+    return games_logic.main(RULES_GAME, generating_question_answer())
 
 
 if __name__ == '__main__':
