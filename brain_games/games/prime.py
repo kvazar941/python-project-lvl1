@@ -26,9 +26,7 @@ def generate_correct_answer(checked_number):
     Returns:
         str
     """
-    #  We start the check with a number equal
-    #  to half of the number being checked.
-    index = checked_number // 2
+    index = checked_number - 1
     while index > 1:
         if checked_number % index == 0:
             return 'no'
