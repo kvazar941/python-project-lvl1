@@ -32,7 +32,7 @@ def generate_correct_answer(checked_number):
     while index > 1:
         if checked_number % index == 0:
             return 'no'
-        index -= 2  # we check only odd numbers
+        index -= 1
     return 'yes'
 
 
