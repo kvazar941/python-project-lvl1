@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return prime.main()
+    return prime.play_prime()
 
 
 if __name__ == '__main__':

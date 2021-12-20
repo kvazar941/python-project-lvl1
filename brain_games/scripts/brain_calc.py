@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return calc.main()
+    return calc.play_calc()
 
 
 if __name__ == '__main__':

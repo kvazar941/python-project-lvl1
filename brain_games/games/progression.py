@@ -10,25 +10,25 @@ SEQ_LEN_MIN = 5
 SEQ_LEN_MAX = 15
 
 
-def progression_formation():
+def create_progression():
     """
     Implement the logic of the game.
 
     Returns:
         list
     """
-    leght_progr = random.SystemRandom().randint(SEQ_LEN_MIN, SEQ_LEN_MAX)
-    init_num_progr = random.SystemRandom().randint(1, 100)
-    step_progr = random.SystemRandom().randint(1, 10)
-    pos_progr = 0
-    quest = []
-    while pos_progr < leght_progr:
-        quest.append(str(init_num_progr + pos_progr * step_progr))
-        pos_progr += 1
-    return quest
+    leght = random.randint(SEQ_LEN_MIN, SEQ_LEN_MAX)
+    init_number = random.randint(1, 100)
+    step = random.randint(1, 10)
+    position = 0
+    init_progression = []
+    while position < leght:
+        init_progression.append(str(init_number + position * step))
+        position += 1
+    return init_progression
 
 
-def generating_question(progression, position):
+def generate_question(progression, position):
     """
     Generate question.
 
@@ -43,7 +43,7 @@ def generating_question(progression, position):
     return progression
 
 
-def generating_correct_answer(progression, position):
+def generate_correct_answer(progression, position):
     """
     Generate correct answer.
 
@@ -57,30 +57,29 @@ def generating_correct_answer(progression, position):
     return str(progression[position])
 
 
-def generating_question_answer():
+def generate_question_answer():
     """
     Generate question and answer.
 
-    Yields:
+    Returns:
         str, str
     """
-    while True:  # noqa: WPS457
-        progr = progression_formation()
-        quest_position = random.SystemRandom().randint(0, (len(progr) - 1))
-        answers = generating_correct_answer(progr, quest_position)
-        questions = ' '.join(generating_question(progr, quest_position))
-        yield questions, answers
+    progression = create_progression()
+    question_position = random.randint(0, (len(progression) - 1))
+    answer = generate_correct_answer(progression, question_position)
+    question = ' '.join(generate_question(progression, question_position))
+    return question, answer
 
 
-def main():
+def play_progression():
     """
     Implement the logic of the game.
 
     Returns:
         str
     """
-    return games_logic.main(RULES_GAME, generating_question_answer())
+    return games_logic.launch_game(RULES_GAME, generate_question_answer)
 
 
 if __name__ == '__main__':
-    main()
+    play_progression()

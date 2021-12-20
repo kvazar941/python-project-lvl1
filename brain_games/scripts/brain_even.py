@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return even.main()
+    return even.play_even()
 
 
 if __name__ == '__main__':

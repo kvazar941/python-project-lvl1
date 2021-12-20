@@ -6,17 +6,17 @@ from brain_games.game_logic import games_logic
 RULES_GAME = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def generating_question():
+def generate_question():
     """
     Generate question.
 
     Returns:
         int
     """
-    return random.SystemRandom().randint(1, 100)
+    return random.randint(1, 100)
 
 
-def generating_correct_answer(checked_number):
+def generate_correct_answer(checked_number):
     """
     Generate correct answer.
 
@@ -32,32 +32,31 @@ def generating_correct_answer(checked_number):
     while index > 1:
         if checked_number % index == 0:
             return 'no'
-        index -= 1
+        index -= 2  # we check only odd numbers
     return 'yes'
 
 
-def generating_question_answer():
+def generate_question_answer():
     """
     Generate question and answer.
 
-    Yields:
+    Returns:
         int, str
     """
-    while True:  # noqa: WPS457
-        questions = generating_question()
-        answers = generating_correct_answer(questions)
-        yield '{0}'.format(questions), answers
+    question = generate_question()
+    answer = generate_correct_answer(question)
+    return '{0}'.format(question), answer
 
 
-def main():
+def play_prime():
     """
     Implement the logic of the game.
 
     Returns:
         str
     """
-    return games_logic.main(RULES_GAME, generating_question_answer())
+    return games_logic.launch_game(RULES_GAME, generate_question_answer)
 
 
 if __name__ == '__main__':
-    main()
+    play_prime()

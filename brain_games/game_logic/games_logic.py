@@ -12,7 +12,7 @@ def message(formation, formatting_message):
         formation: str
         formatting_message: str, int
     """
-    print(formation.format(formatting_message))  # noqa: WPS421
+    print(formation.format(formatting_message))
 
 
 def message_error(right_answer, wrong_answer):
@@ -24,10 +24,10 @@ def message_error(right_answer, wrong_answer):
         wrong_answer: str, int
     """
     format_message = "'{0}' is wrong answer ;(. Correct answer was '{1}'."
-    print(format_message.format(wrong_answer, right_answer))  # noqa: WPS421
+    print(format_message.format(wrong_answer, right_answer))
 
 
-def main(rules, question_answer):
+def launch_game(rules, question_answer):
     """
     Implement the logic of the game.
 
@@ -41,7 +41,7 @@ def main(rules, question_answer):
     message('{0}', rules)
     counter_question = 0
     while counter_question < NUMBER_OF_ROUNDS:
-        question, answer = next(question_answer)
+        question, answer = question_answer()
         message('Question: {0}', question)
         answer_user = prompt.string('Your answer: ')
         if answer_user == answer:
@@ -56,4 +56,4 @@ def main(rules, question_answer):
 
 
 if __name__ == '__main__':
-    main()
+    launch_game(rules, question_answer)  # noqa: F821

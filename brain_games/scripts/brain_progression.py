@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return progression.main()
+    return progression.play_progression()
 
 
 if __name__ == '__main__':

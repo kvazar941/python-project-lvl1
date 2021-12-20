@@ -10,7 +10,7 @@ def main():
     Returns:
         str
     """
-    return gcd.main()
+    return gcd.play_gcd()
 
 
 if __name__ == '__main__':

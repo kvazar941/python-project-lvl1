@@ -6,21 +6,21 @@ from brain_games.game_logic import games_logic
 RULES_GAME = 'What is the result of the expression?.'
 
 
-def generating_question():
+def generate_question():
     """
     Generate question.
 
     Returns:
         tuple
     """
-    number_one = random.SystemRandom().randint(1, 100)
-    number_two = random.SystemRandom().randint(1, 100)
-    operator = random.SystemRandom().choice('+-*')
+    number_one = random.randint(1, 100)
+    number_two = random.randint(1, 100)
+    operator = random.choice('+-*')
 
     return (number_one, operator, number_two)
 
 
-def generating_correct_answer(num_one, oper, num_two):
+def generate_correct_answer(num_one, oper, num_two):
     """
     Generate correct answer.
 
@@ -40,28 +40,27 @@ def generating_correct_answer(num_one, oper, num_two):
         return (str(num_one * num_two))
 
 
-def generating_question_answer():
+def generate_question_answer():
     """
     Generate question and answer.
 
-    Yields:
+    Returns:
         str, str
     """
-    while True:  # noqa: WPS457
-        questions = generating_question()
-        answers = generating_correct_answer(*questions)
-        yield '{0} {1} {2}'.format(*questions), answers
+    question = generate_question()
+    answer = generate_correct_answer(*question)
+    return '{0} {1} {2}'.format(*question), answer
 
 
-def main():
+def play_calc():
     """
     Implement the logic of the game.
 
     Returns:
         str
     """
-    return games_logic.main(RULES_GAME, generating_question_answer())
+    return games_logic.launch_game(RULES_GAME, generate_question_answer)
 
 
 if __name__ == '__main__':
-    main()
+    play_calc()
