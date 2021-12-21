@@ -54,7 +54,3 @@ def play_prime():
         str
     """
     return games_logic.launch_game(RULES_GAME, generate_question_answer)
-
-
-if __name__ == '__main__':
-    play_prime()

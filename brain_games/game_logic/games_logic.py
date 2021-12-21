@@ -53,7 +53,3 @@ def launch_game(rules, question_answer):
             message_error(answer, answer_user)
             message("Let\'s try again, {0}!", name)
             counter_question = NUMBER_OF_ROUNDS
-
-
-if __name__ == '__main__':
-    launch_game(rules, question_answer)  # noqa: F821
