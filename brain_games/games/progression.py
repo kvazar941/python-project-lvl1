@@ -54,7 +54,7 @@ def generate_correct_answer(progression, position):
     Returns:
         str
     """
-    return str(progression[position])
+    return progression[position]
 
 
 def generate_question_answer():
@@ -66,7 +66,7 @@ def generate_question_answer():
     """
     progression = create_progression()
     question_position = random.randint(0, (len(progression) - 1))
-    answer = generate_correct_answer(progression, question_position)
+    answer = str(generate_correct_answer(progression, question_position))
     question = ' '.join(generate_question(progression, question_position))
     return question, answer
 

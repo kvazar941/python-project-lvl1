@@ -30,14 +30,14 @@ def generate_correct_answer(num_one, oper, num_two):
         oper: str
 
     Returns:
-        str
+        int
     """
     if oper == '+':
-        return (str(num_one + num_two))
+        return num_one + num_two
     elif oper == '-':
-        return (str(num_one - num_two))
+        return num_one - num_two
     elif oper == '*':
-        return (str(num_one * num_two))
+        return num_one * num_two
 
 
 def generate_question_answer():
@@ -49,7 +49,7 @@ def generate_question_answer():
     """
     question = generate_question()
     answer = generate_correct_answer(*question)
-    return '{0} {1} {2}'.format(*question), answer
+    return '{0} {1} {2}'.format(*question), str(answer)
 
 
 def play_calc():
