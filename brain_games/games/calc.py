@@ -40,7 +40,7 @@ def generate_correct_answer(num_one, oper, num_two):
         return num_one * num_two
 
 
-def generate_question_answer():
+def generate_question_answer_calc():
     """
     Generate question and answer for game calc.
 
@@ -59,4 +59,4 @@ def play_calc():
     Returns:
         str
     """
-    return games_logic.launch_game(RULES_GAME, generate_question_answer)
+    return games_logic.launch_game(RULES_GAME, generate_question_answer_calc)
