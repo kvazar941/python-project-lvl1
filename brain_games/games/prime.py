@@ -8,7 +8,7 @@ RULES_GAME = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 def generate_question():
     """
-    Generate question.
+    Generate question for game prime.
 
     Returns:
         int
@@ -18,7 +18,7 @@ def generate_question():
 
 def generate_correct_answer(checked_number):
     """
-    Generate correct answer.
+    Generate correct answer for game prime.
 
     Args:
         checked_number: int
@@ -36,7 +36,7 @@ def generate_correct_answer(checked_number):
 
 def generate_question_answer():
     """
-    Generate question and answer.
+    Generate question and answer for game prime.
 
     Returns:
         int, str

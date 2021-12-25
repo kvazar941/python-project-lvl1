@@ -8,7 +8,7 @@ RULES_GAME = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 def generate_question():
     """
-    Generate question.
+    Generate question for game even.
 
     Returns:
         int
@@ -18,7 +18,7 @@ def generate_question():
 
 def generate_correct_answer(checked_number):
     """
-    Generate correct answer.
+    Generate correct answer for game even.
 
     Args:
         checked_number: int
@@ -31,7 +31,7 @@ def generate_correct_answer(checked_number):
 
 def generate_question_answer():
     """
-    Generate question and answer.
+    Generate question and answer for game even.
 
     Returns:
         str, str

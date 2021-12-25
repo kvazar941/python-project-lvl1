@@ -8,7 +8,7 @@ RULES_GAME = 'What is the result of the expression?.'
 
 def generate_question():
     """
-    Generate question.
+    Generate question for game calc.
 
     Returns:
         tuple
@@ -22,7 +22,7 @@ def generate_question():
 
 def generate_correct_answer(num_one, oper, num_two):
     """
-    Generate correct answer.
+    Generate correct answer for game calc.
 
     Args:
         num_one: int
@@ -42,7 +42,7 @@ def generate_correct_answer(num_one, oper, num_two):
 
 def generate_question_answer():
     """
-    Generate question and answer.
+    Generate question and answer for game calc.
 
     Returns:
         str, str

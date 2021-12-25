@@ -12,7 +12,7 @@ SEQ_LEN_MAX = 15
 
 def create_progression():
     """
-    Implement the logic of the game.
+    Create initial progression for game progression.
 
     Returns:
         list
@@ -30,7 +30,7 @@ def create_progression():
 
 def generate_question(progression, position):
     """
-    Generate question.
+    Generate question for game progression.
 
     Args:
         progression: list
@@ -45,7 +45,7 @@ def generate_question(progression, position):
 
 def generate_correct_answer(progression, position):
     """
-    Generate correct answer.
+    Generate correct answer for game progression.
 
     Args:
         progression: list
@@ -59,7 +59,7 @@ def generate_correct_answer(progression, position):
 
 def generate_question_answer():
     """
-    Generate question and answer.
+    Generate question and answer for game progression.
 
     Returns:
         str, str

@@ -9,7 +9,7 @@ RULES_GAME = 'Find the greatest common divisor of given numbers.'
 
 def generate_question():
     """
-    Generate question.
+    Generate question for game gcd.
 
     Returns:
         tuple
@@ -21,7 +21,7 @@ def generate_question():
 
 def generate_correct_answer(num_one, num_two):
     """
-    Generate correct answer.
+    Generate correct answer for game gcd.
 
     Args:
         num_one: int
@@ -35,7 +35,7 @@ def generate_correct_answer(num_one, num_two):
 
 def generate_question_answer():
     """
-    Generate question and answer.
+    Generate question and answer for game gcd.
 
     Returns:
         str, str
