@@ -36,9 +36,9 @@ def launch_game(rules, question_answer):
         if answer_user == answer:
             message('{0}', ('Correct!',))
             counter_question += 1
-            if counter_question == NUMBER_OF_ROUNDS:
-                message('Congratulations, {0}!', (name,))
         else:
             message(ERROR_MESSAGE, (answer_user, answer))
             message("Let\'s try again, {0}!", (name,))
             break
+        if counter_question == NUMBER_OF_ROUNDS:
+            message('Congratulations, {0}!', (name,))
